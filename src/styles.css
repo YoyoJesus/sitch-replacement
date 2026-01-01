@@ -1,8 +1,8 @@
 :root {
   /* Primary Brand Colors */
-  --primary-color: #1c6b31;
-  --secondary-color: #4b55a2;
-  --accent-color: #667eea;
+  --primary-color: #09bae2;
+  --secondary-color: #121e75;
+  --accent-color: #8495e2;
   
   /* Text Colors */
   --text-dark: #e2e8f0;
@@ -70,6 +70,15 @@ body {
   box-shadow: 0 8px 20px var(--shadow-accent);
 }
 
+.profile-image img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  /* move down a bit to center better */
+  margin-top: 25px;
+}
+
 h1 {
   font-size: 2rem;
   font-weight: 700;
@@ -82,6 +91,11 @@ h1 {
   color: var(--accent-color);
   margin-bottom: 0.5rem;
   font-weight: 600;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
 }
 
 .location {

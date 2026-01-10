@@ -4,7 +4,8 @@
   "version": "1.0.50",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
+    "build:contact": "bun build src/contact.ts --outfile=src/contact.js --target=browser",
+    "dev": "bun run build:contact && bun run --watch src/index.ts"
   },
   "dependencies": {
     "elysia": "latest"

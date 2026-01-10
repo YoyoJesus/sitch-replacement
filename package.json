@@ -4,6 +4,7 @@
   "version": "1.0.50",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "bun run build:contact",
     "build:contact": "bun build src/contact.ts --outfile=src/contact.js --target=browser",
     "dev": "bun run build:contact && bun run --watch src/index.ts"
   },

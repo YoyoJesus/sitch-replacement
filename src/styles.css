@@ -432,13 +432,13 @@ a {
 }
 
 .toast.success {
-  border: 2px solid rgba(16, 185, 129, 0.3);
-  background: rgba(16, 185, 129, 0.15);
+  border: 2px solid rgb(5, 0, 74);
+  background: rgba(5, 5, 172, 0.15);
 }
 
 .toast.error {
   border: 2px solid rgba(239, 68, 68, 0.3);
-  background: rgba(239, 68, 68, 0.15);
+  background: rgba(246, 4, 4, 0.377);
 }
 
 .toast-message {

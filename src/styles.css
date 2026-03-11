@@ -25,6 +25,15 @@
   --shadow-accent: rgba(102, 126, 234, 0.4);
 }
 
+html {
+	scroll-behavior: smooth;
+	scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+	display: none;
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {

@@ -2,143 +2,98 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Austin Sernberg - Digital Business Card</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1b211a">
+  <title>Austin Sternberg</title>
   <link rel="icon" type="image/x-icon" href="/Static/favicon.ico">
   <link rel="icon" type="image/svg+xml" href="/Static/favicon.svg">
   <link rel="icon" type="image/png" sizes="96x96" href="/Static/favicon-96x96.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/Static/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
 </head>
 <body>
-  <div class="card">
-    <div class="profile-image">
-      <img class="profile-image" src="/Static/DSC_1254.JPG" alt="Austin Sernberg">
-    </div>
-    <h1>Austin Sernberg</h1>
-    <div class="title">Computer Science Student @ Kent State University</div>
-    <div class="title">IT Intern @ <a href="https://awetomaton.com" target="_blank" rel="noopener">Awetomaton</a></div>
-    <div class="title">President @ <a href="https://hacksu.com" target="_blank" rel="noopener">HacKSU</a></div>
-    <div class="title">President @ <a href="https://ksucombat.club" target="_blank" rel="noopener">KSU Combat Robotics</a></div>
-    <div class="location">Mentor, OH</div>
-    
-    <p class="bio">
-      Interested in cybersecurity and network engineering. <br>
-      Seeking positions as a penetration tester, SOC analyst, or network engineer
-    </p>
-    
-    <div class="skills">
-      <span class="skill">Wireshark</span>
-      <span class="skill">Burp Suite</span>
-      <span class="skill">Bash</span>
-      <span class="skill">Nmap</span>
-      <span class="skill">Network Device Configuration</span>
-      <span class="skill">TypeScript</span>
-      <span class="skill">Flask</span>
-      <span class="skill">React</span>
-      <span class="skill">Svelte</span>
-      <span class="skill">C++</span>
-      <span class="skill">Docker</span>
-      <span class="skill">Python</span>
-      <span class="skill">SQL & PostgreSQL</span>
-      <span class="skill">N8N</span>
-      <span class="skill">AI (API Integration)</span>
-      <span class="skill">Linux Fundamentals</span>
-      <span class="skill">Active Directory</span>
-      <span class="skill">Device Repair</span>
+  <main class="card">
+    <img class="avatar" src="/Static/DSC_1254.JPG" alt="Austin Sternberg">
+    <h1 class="name">Austin Sternberg</h1>
+    <p class="subtitle">CS Student at Kent State University</p>
+    <p class="location">Mentor, OH</p>
 
-    </div>
-    
-    <div class="social-links">
-      <a href="https://github.com/yoyojesus" class="social-link" target="_blank" rel="noopener">
-        <i class="fab fa-github"></i>
-        GitHub
+    <ul class="roles">
+      <li>President of <a href="https://hacksu.com" target="_blank" rel="noopener">HacKSU</a></li>
+      <li>President of <a href="https://ksucombat.club" target="_blank" rel="noopener">KSU Combat Robotics</a></li>
+    </ul>
+
+    <p class="bio">
+      Into cybersecurity, networking, and building things.
+    </p>
+
+    <nav class="links" aria-label="Links">
+      <a href="https://resume.asternberg.xyz" class="link link-primary">
+        <iconify-icon icon="ph:file-text" aria-hidden="true"></iconify-icon>
+        Resume
       </a>
-      <a href="https://www.linkedin.com/in/austin-sternberg" class="social-link" target="_blank" rel="noopener">
-        <i class="fab fa-linkedin"></i>
+      <button type="button" id="open-contact-form" class="link">
+        <iconify-icon icon="ph:envelope-simple" aria-hidden="true"></iconify-icon>
+        Email
+      </button>
+      <a href="https://www.linkedin.com/in/austin-sternberg" class="link" target="_blank" rel="noopener">
+        <iconify-icon icon="simple-icons:linkedin" aria-hidden="true"></iconify-icon>
         LinkedIn
       </a>
-      <a href="https://www.youtube.com/@yoyojesus" class="social-link" target="_blank" rel="noopener">
-        <i class="fab fa-youtube"></i>
-        YouTube
+      <a href="https://github.com/yoyojesus" class="link" target="_blank" rel="noopener">
+        <iconify-icon icon="simple-icons:github" aria-hidden="true"></iconify-icon>
+        GitHub
       </a>
-      <a href="#" id="open-contact-form" class="social-link">
-        <i class="fas fa-envelope"></i>
-        Email
-      </a>
-      <a href="https://www.asternberg.xyz" class="social-link" target="_blank" rel="noopener">
-        <i class="fas fa-globe"></i>
+      <a href="https://www.asternberg.xyz" class="link" target="_blank" rel="noopener">
+        <iconify-icon icon="ph:globe-simple" aria-hidden="true"></iconify-icon>
         Website
       </a>
-    </div>
-    
-    <a href="https://resume.asternberg.xyz" class="contact-btn">My Resume</a>
-  </div>
+      <a href="https://www.youtube.com/@yoyojesus" class="link" target="_blank" rel="noopener">
+        <iconify-icon icon="simple-icons:youtube" aria-hidden="true"></iconify-icon>
+        YouTube
+      </a>
+    </nav>
 
-  <!-- Contact Modal -->
+    <section class="skills" aria-label="Skills">
+      <p><span>Security</span> Wireshark, Burp Suite, Nmap, Active Directory, Linux</p>
+      <p><span>Development</span> Python, TypeScript, Svelte, Flask, Docker, PostgreSQL</p>
+    </section>
+  </main>
+
   <div id="contact-modal" class="modal-overlay">
-    <div class="modal-content">
-      <button
-        id="close-modal"
-        class="close-btn"
-        aria-label="Close modal"
-      >
-        ×
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button id="close-modal" class="close-btn" aria-label="Close">
+        <iconify-icon icon="ph:x-bold" aria-hidden="true"></iconify-icon>
       </button>
-      
-      <h2 class="modal-title">Get in Touch</h2>
-      
+
+      <h2 id="modal-title" class="modal-title">Send me a message</h2>
+
       <form id="contact-form" class="contact-form">
         <div class="form-group">
-          <label for="name" class="form-label">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            class="form-input"
-            placeholder="Your name"
-          />
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name" name="name" required class="form-input" autocomplete="name" />
         </div>
-        
+
         <div class="form-group">
-          <label for="email" class="form-label">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            class="form-input"
-            placeholder="your.email@example.com"
-          />
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" name="email" required class="form-input" autocomplete="email" />
         </div>
-        
+
         <div class="form-group">
-          <label for="message" class="form-label">Message:</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="5"
-            required
-            class="form-input form-textarea"
-            placeholder="Your message..."
-          ></textarea>
+          <label for="message" class="form-label">Message</label>
+          <textarea id="message" name="message" rows="5" required class="form-input form-textarea"></textarea>
         </div>
-        
-        <button
-          type="submit"
-          id="submit-btn"
-          class="submit-btn"
-        >
-          Send Message
-        </button>
+
+        <button type="submit" id="submit-btn" class="submit-btn">Send Message</button>
       </form>
     </div>
   </div>
 
-  <!-- Toast Notification -->
-  <div id="toast" class="toast">
+  <div id="toast" class="toast" role="status">
     <p id="toast-message" class="toast-message"></p>
   </div>
 

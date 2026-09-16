@@ -11,7 +11,7 @@ emailjs.init(publicKey);
 const modal = document.getElementById('contact-modal') as HTMLElement;
 const form = document.getElementById('contact-form') as HTMLFormElement;
 const closeBtn = document.getElementById('close-modal') as HTMLButtonElement;
-const openBtn = document.getElementById('open-contact-form') as HTMLAnchorElement;
+const openBtn = document.getElementById('open-contact-form') as HTMLButtonElement;
 const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
 const toast = document.getElementById('toast') as HTMLElement;
 const toastMessage = document.getElementById('toast-message') as HTMLElement;

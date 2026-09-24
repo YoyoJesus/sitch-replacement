@@ -57,7 +57,7 @@ button {
   outline-offset: 2px;
 }
 
-iconify-icon {
+svg.iconify {
   display: inline-block;
   width: 1.15em;
   height: 1.15em;

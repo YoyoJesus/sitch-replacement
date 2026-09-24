@@ -44,3 +44,5 @@ package-lock.json
 
 # Built files
 src/contact.js
+# SvelteKit
+/.svelte-kit

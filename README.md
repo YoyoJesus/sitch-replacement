@@ -10,7 +10,7 @@
    - `{{message}}` - message content
    - `{{to_name}}` - your name (Austin)
 4. Get your Service ID, Template ID, and Public Key from the dashboard
-5. Copy `.env.example` to `.env` and fill in your credentials:
+5. Copy `.env.example` to `.env` and fill in your credentials (`PUBLIC_EMAILJS_*`):
 
 ```bash
 cp .env.example .env
@@ -24,7 +24,7 @@ bun run dev
 ```
 
 ```
-open http://localhost:3000/
+open http://localhost:5173/
 ```
 
 ## Deploy

@@ -1,0 +1,4 @@
+bun.lock
+static/
+.svelte-kit/
+.vercel/

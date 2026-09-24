@@ -1,18 +1,30 @@
 {
-  "name": "bun-elysia-vc",
+  "name": "sitch-replacement",
+  "private": true,
+  "version": "0.0.1",
   "type": "module",
-  "version": "1.0.50",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "bun run build:contact",
-    "build:contact": "bun build src/contact.ts --outfile=src/contact.js --target=browser",
-    "dev": "bun run build:contact && bun run --watch src/index.ts"
-  },
-  "dependencies": {
-    "elysia": "latest"
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prepare": "svelte-kit sync || echo ''",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "format": "prettier --write .",
+    "lint": "prettier --check ."
   },
   "devDependencies": {
-    "bun-types": "latest",
-    "typescript": "^5.9.3"
+    "@iconify/svelte": "^5.2.2",
+    "@sveltejs/adapter-vercel": "^6.3.4",
+    "@sveltejs/kit": "^2.70.3",
+    "@sveltejs/vite-plugin-svelte": "^7.3.1",
+    "prettier": "^3.9.9",
+    "prettier-plugin-svelte": "^4.1.1",
+    "svelte": "^5.57.1",
+    "svelte-check": "^4.7.6",
+    "typescript": "~6",
+    "vite": "^8.3.1"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1"
   }
 }

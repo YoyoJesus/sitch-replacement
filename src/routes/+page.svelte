@@ -23,7 +23,9 @@
   let toast = $state<{ message: string; isError: boolean } | null>(null);
   let toastTimer: ReturnType<typeof setTimeout>;
   let form: HTMLFormElement;
-  let track = $state<{ name: string; artist: string; url: string; nowPlaying: boolean } | null>(null);
+  let track = $state<{ name: string; artist: string; url: string; image: string | null; nowPlaying: boolean } | null>(
+    null,
+  );
 
   $effect(() => {
     fetch("/api/now-playing")
@@ -89,12 +91,13 @@
       <Icon icon="ph:envelope-simple" aria-hidden="true" />
       Email
     </button>
-    {#each links as link (link.href)}
-      <a href={link.href} class="link" target="_blank" rel="noopener">
-        <Icon icon={link.icon} aria-hidden="true" />
-        {link.label}
-      </a>
-    {/each}
+    <div class="links-social">
+      {#each links as link (link.href)}
+        <a href={link.href} class="link" target="_blank" rel="noopener" aria-label={link.label} title={link.label}>
+          <Icon icon={link.icon} aria-hidden="true" />
+        </a>
+      {/each}
+    </div>
   </nav>
 
   <section class="skills" aria-label="Skills">
@@ -109,13 +112,20 @@
     target="_blank"
     rel="noopener"
   >
-    <Icon icon="ph:music-notes-simple" aria-hidden="true" />
-    {#if track}
-      <span class="now-playing-label">{track.nowPlaying ? "Now playing" : "Last played"}</span>
-      <span class="now-playing-track">{track.name} — {track.artist}</span>
-    {:else}
-      <span class="now-playing-label">Listening on Last.fm</span>
-    {/if}
+    <span class="record" class:spinning={track?.nowPlaying} aria-hidden="true">
+      {#if track?.image}
+        <img src={track.image} alt="" />
+      {/if}
+    </span>
+    <span class="now-playing-text">
+      {#if track}
+        <span class="now-playing-track">{track.name}</span>
+        <span class="now-playing-meta">{track.nowPlaying ? "Now playing" : "Last played"} · {track.artist}</span>
+      {:else}
+        <span class="now-playing-track">Listening on Last.fm</span>
+        <span class="now-playing-meta">@yoyojesus</span>
+      {/if}
+    </span>
   </a>
 </main>
 

@@ -77,7 +77,7 @@
   <ul class="roles">
     <li>President of <a href="https://hacksu.com" target="_blank" rel="noopener">HacKSU</a></li>
     <li>President of <a href="https://ksucombat.club" target="_blank" rel="noopener">KSU Combat Robotics</a></li>
-    <li>Former IT Intern at Awetomaton</li>
+    <li>Former IT Intern at <a href="https://awetomaton.com" target="_blank" rel="noopener">Awetomaton</a></li>
   </ul>
 
   <p class="bio">Into cybersecurity, networking, and building things.</p>

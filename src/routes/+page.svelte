@@ -8,6 +8,7 @@
     { href: "https://github.com/yoyojesus", icon: "simple-icons:github", label: "GitHub" },
     { href: "https://www.asternberg.xyz", icon: "ph:globe-simple", label: "Website" },
     { href: "https://www.youtube.com/@yoyojesus", icon: "simple-icons:youtube", label: "YouTube" },
+    { href: "https://blog.yoyojesus.xyz", icon: "ph:article", label: "Blog" },
   ];
 
   const skills = [
@@ -22,6 +23,14 @@
   let toast = $state<{ message: string; isError: boolean } | null>(null);
   let toastTimer: ReturnType<typeof setTimeout>;
   let form: HTMLFormElement;
+  let track = $state<{ name: string; artist: string; url: string; nowPlaying: boolean } | null>(null);
+
+  $effect(() => {
+    fetch("/api/now-playing")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => (track = data))
+      .catch(() => {});
+  });
 
   $effect(() => {
     document.body.style.overflow = modalOpen ? "hidden" : "";
@@ -60,12 +69,13 @@
 <main class="card">
   <img class="avatar" src="/DSC_1254.JPG" alt="Austin Sternberg" />
   <h1 class="name">Austin Sternberg</h1>
-  <p class="subtitle">CS Student at Kent State University</p>
+  <p class="subtitle">CS Senior at Kent State University</p>
   <p class="location">Mentor, OH</p>
 
   <ul class="roles">
     <li>President of <a href="https://hacksu.com" target="_blank" rel="noopener">HacKSU</a></li>
     <li>President of <a href="https://ksucombat.club" target="_blank" rel="noopener">KSU Combat Robotics</a></li>
+    <li>Former IT Intern at Awetomaton</li>
   </ul>
 
   <p class="bio">Into cybersecurity, networking, and building things.</p>
@@ -92,6 +102,21 @@
       <p><span>{skill.group}</span> {skill.items}</p>
     {/each}
   </section>
+
+  <a
+    class="now-playing"
+    href={track?.url ?? "https://www.last.fm/user/yoyojesus"}
+    target="_blank"
+    rel="noopener"
+  >
+    <Icon icon="ph:music-notes-simple" aria-hidden="true" />
+    {#if track}
+      <span class="now-playing-label">{track.nowPlaying ? "Now playing" : "Last played"}</span>
+      <span class="now-playing-track">{track.name} — {track.artist}</span>
+    {:else}
+      <span class="now-playing-label">Listening on Last.fm</span>
+    {/if}
+  </a>
 </main>
 
 <svelte:window onkeydown={(e) => e.key === "Escape" && modalOpen && closeModal()} />

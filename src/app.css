@@ -157,6 +157,7 @@ svg.iconify {
 }
 
 .link-primary {
+  grid-column: 1 / -1;
   background: var(--moss);
   border-color: var(--moss);
   color: #fff;
@@ -190,6 +191,36 @@ svg.iconify {
   display: block;
   font-size: 0.75rem;
   color: var(--paper);
+}
+
+.now-playing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  margin-top: clamp(0.625rem, 2dvh, 1.25rem);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.now-playing svg.iconify {
+  color: var(--moss-light);
+}
+
+.now-playing-label {
+  flex-shrink: 0;
+}
+
+.now-playing-track {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--paper);
+}
+
+.now-playing:hover .now-playing-track {
+  text-decoration: underline;
 }
 
 /* Modal */

@@ -1,5 +1,6 @@
 <script lang="ts">
   import Icon from "@iconify/svelte";
+  import Field from "$lib/components/Field.svelte";
   import emailjs from "@emailjs/browser";
   import { PUBLIC_EMAILJS_SERVICE_ID, PUBLIC_EMAILJS_TEMPLATE_ID, PUBLIC_EMAILJS_PUBLIC_KEY } from "$env/static/public";
 
@@ -10,6 +11,8 @@
     { href: "https://www.youtube.com/@yoyojesus", icon: "simple-icons:youtube", label: "YouTube" },
     { href: "https://blog.yoyojesus.xyz", icon: "ph:article", label: "Blog" },
   ];
+
+  const name = ["Austin", "Sternberg"];
 
   const skills = [
     { group: "Programming", items: "SvelteKit, PostgreSQL, Drizzle, Tailwind, Python, Flask" },
@@ -68,65 +71,77 @@
   }
 </script>
 
-<main class="card">
-  <img class="avatar" src="/DSC_1254.JPG" alt="Austin Sternberg" />
-  <h1 class="name">Austin Sternberg</h1>
-  <p class="subtitle">CS Senior at Kent State University</p>
-  <p class="location">Mentor, OH</p>
+<main class="hero">
+  <Field />
+  <div class="scrim" aria-hidden="true"></div>
 
-  <ul class="roles">
-    <li>President of <a href="https://hacksu.com" target="_blank" rel="noopener">HacKSU</a></li>
-    <li>President of <a href="https://ksucombat.club" target="_blank" rel="noopener">KSU Combat Robotics</a></li>
-    <li>Former IT Intern at <a href="https://awetomaton.com" target="_blank" rel="noopener">Awetomaton</a></li>
-  </ul>
+  <div class="hero-inner">
+    <header class="topbar">
+      <img class="avatar" src="/DSC_1254.JPG" width="45" height="45" alt="Austin Sternberg" />
+      <nav class="socials" aria-label="Links">
+        {#each links as link (link.href)}
+          <a href={link.href} target="_blank" rel="noopener" aria-label={link.label} title={link.label}>
+            <Icon icon={link.icon} aria-hidden="true" />
+          </a>
+        {/each}
+      </nav>
+    </header>
 
-  <p class="bio">Into cybersecurity, networking, and building things.</p>
-
-  <nav class="links" aria-label="Links">
-    <a href="https://resume.asternberg.xyz" class="link link-primary">
-      <Icon icon="ph:file-text" aria-hidden="true" />
-      Resume
-    </a>
-    <button type="button" class="link" onclick={() => (modalOpen = true)}>
-      <Icon icon="ph:envelope-simple" aria-hidden="true" />
-      Email
-    </button>
-    <div class="links-social">
-      {#each links as link (link.href)}
-        <a href={link.href} class="link" target="_blank" rel="noopener" aria-label={link.label} title={link.label}>
-          <Icon icon={link.icon} aria-hidden="true" />
-        </a>
+    <h1 class="display hero-name" aria-label={name.join(" ")}>
+      {#each name as word, w (word)}
+        <span class="word" aria-hidden="true">
+          {#each word as ch, c (c)}
+            <span class="ch" style="--i: {w * 7 + c}">{ch}</span>
+          {/each}
+        </span>
       {/each}
+    </h1>
+
+    <div class="hero-bottom">
+      <div class="hero-copy">
+        <p class="subtitle">CS Senior at Kent State University. <span class="location">Mentor, OH</span></p>
+        <ul class="roles">
+          <li>President of <a href="https://hacksu.com" target="_blank" rel="noopener">HacKSU</a></li>
+          <li>President of <a href="https://ksucombat.club" target="_blank" rel="noopener">KSU Combat Robotics</a></li>
+          <li>Former IT Intern at <a href="https://awetomaton.com" target="_blank" rel="noopener">Awetomaton</a></li>
+        </ul>
+        <p class="bio">Into cybersecurity, networking, and building things.</p>
+      </div>
+
+      <div class="hero-actions">
+        <button type="button" class="btn btn-primary" onclick={() => (modalOpen = true)}>
+          Get in Touch <Icon icon="ph:arrow-right" aria-hidden="true" />
+        </button>
+        <a class="btn btn-ghost" href="https://resume.asternberg.xyz" target="_blank" rel="noopener">View my Resume</a>
+        <a class="btn btn-ghost" href="https://blog.yoyojesus.xyz" target="_blank" rel="noopener">Read my Blog</a>
+      </div>
     </div>
-  </nav>
 
-  <section class="skills" aria-label="Skills">
-    {#each skills as skill (skill.group)}
-      <p><span>{skill.group}</span> {skill.items}</p>
-    {/each}
-  </section>
+    <footer class="hero-footer">
+      <section class="skills" aria-label="Skills">
+        {#each skills as skill (skill.group)}
+          <p><span>{skill.group}</span> {skill.items}</p>
+        {/each}
+      </section>
 
-  <a
-    class="now-playing"
-    href={track?.url ?? "https://www.last.fm/user/yoyojesus"}
-    target="_blank"
-    rel="noopener"
-  >
-    <span class="record" class:spinning={track?.nowPlaying} aria-hidden="true">
-      {#if track?.image}
-        <img src={track.image} alt="" />
-      {/if}
-    </span>
-    <span class="now-playing-text">
-      {#if track}
-        <span class="now-playing-track">{track.name}</span>
-        <span class="now-playing-meta">{track.nowPlaying ? "Now playing" : "Last played"} · {track.artist}</span>
-      {:else}
-        <span class="now-playing-track">Listening on Last.fm</span>
-        <span class="now-playing-meta">@yoyojesus</span>
-      {/if}
-    </span>
-  </a>
+      <a class="now-playing" href={track?.url ?? "https://www.last.fm/user/yoyojesus"} target="_blank" rel="noopener">
+        <span class="record" class:spinning={track?.nowPlaying} aria-hidden="true">
+          {#if track?.image}
+            <img src={track.image} alt="" />
+          {/if}
+        </span>
+        <span class="now-playing-text">
+          {#if track}
+            <span class="now-playing-track">{track.name}</span>
+            <span class="now-playing-meta">{track.nowPlaying ? "Now playing" : "Last played"} · {track.artist}</span>
+          {:else}
+            <span class="now-playing-track">Listening on Last.fm</span>
+            <span class="now-playing-meta">@yoyojesus</span>
+          {/if}
+        </span>
+      </a>
+    </footer>
+  </div>
 </main>
 
 <svelte:window onkeydown={(e) => e.key === "Escape" && modalOpen && closeModal()} />
